@@ -1,0 +1,19 @@
+<apex:page controller="ChangeAdressController" lightningStyleSheets="true" action="{!init}">
+    <apex:form id="mainForm" >
+        <apex:pageBlock title="Change Location">
+            <apex:pageBlockSection >
+                Region<apex:selectList value="{!selectedRegion}" multiselect="false" size="1">
+                		<apex:selectOptions value="{!regionOptions}"/>
+                		<apex:actionSupport event="onchange" rerender="cityId"></apex:actionSupport>
+                	  </apex:selectList>
+                City<apex:selectList value="{!selectedCity}" multiselect="false" size="1" id="cityId">
+                		<apex:selectOptions value="{!cityOptions}"/>
+                		<apex:actionSupport event="onchange" rerender="cityId"></apex:actionSupport>
+                	</apex:selectList>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <div align="center">
+            <apex:commandButton action="{!Save}" value="Update location"  />              
+        </div>
+    </apex:form>
+</apex:page>
