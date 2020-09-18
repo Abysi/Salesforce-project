@@ -1,0 +1,15 @@
+<apex:page controller="ContactManagerController" lightningStyleSheets="true" action="{!init}">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                
+                <apex:inputTextarea value="{!message}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>        
+        
+        <div align="center">
+            <apex:commandButton action="{!Save}" value="Send message" />              
+        </div>
+        
+    </apex:form>
+</apex:page>
