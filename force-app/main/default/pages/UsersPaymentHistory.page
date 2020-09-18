@@ -1,0 +1,26 @@
+<apex:page controller="UsersPaymentHistoryController" lightningStyleSheets="true" action="{!init}">
+    <apex:form >
+        <apex:pageBlock title="Users from your region">
+            <apex:pageBlockTable value="{!users}" var="u">
+                <apex:column headerValue="User name" >
+                    <apex:commandLink action="{!setCurrentUserForPaymentHistory}" value="{!u.Name}" reRender="paymentsBlock">
+                        <apex:param name="userId" value="{!u.id}" assignTo="{!currentUserId}"/>
+                    </apex:commandLink>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        <apex:pageBlock id="paymentsBlock" title="Payments">
+        <apex:pageBlockTable value="{! payments }" var="p">
+            <apex:column value="{! p.Name }"/>
+            <apex:column value="{! p.Date__c }"/>
+            <apex:column value="{! p.PaymentSumm__c }"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+        
+        <div align="center">
+            <apex:commandButton action="{!home}" value="Home" />              
+        </div>
+        
+    </apex:form>
+</apex:page>
