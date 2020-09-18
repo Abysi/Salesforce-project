@@ -1,0 +1,12 @@
+<apex:page controller="homeController" lightningStyleSheets="true">
+    <apex:form >
+        <h1 align="center">
+            Hello World
+        </h1>
+        <div align="center">
+            <apex:commandButton action="{!registration}" value="Registration" />
+            <apex:commandButton action="{!login}" value="Login"  />    
+        </div>
+        
+    </apex:form>
+</apex:page>

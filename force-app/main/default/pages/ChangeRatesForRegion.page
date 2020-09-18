@@ -1,0 +1,15 @@
+<apex:page controller="ChangeRatesForRegionController" lightningStyleSheets="true" action="{!init}">
+    <apex:form id="mainForm" >
+        <apex:messages />
+        <apex:pageBlock title="New rates for region">
+            <apex:pageBlockSection >
+                New tax for water:<apex:inputText value="{!water}"/>
+                New tax for gas:<apex:inputText value="{!gas}"/>
+                New tax for elec:<apex:inputText value="{!elec}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <div align="center">
+            <apex:commandButton action="{!setNewRates}" value="Apply" reRender="mainForm" />              
+        </div>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,14 @@
+<apex:page controller="MounthlyPaymentsController" lightningStyleSheets="true" action="{!init}">
+    <apex:form >
+        <apex:pageBlock id="penaltyForm">
+            <apex:messages />
+            <apex:pageBlockSection >
+                <apex:outputText value="Current Balance: {!userInfo.Balance__c} " />
+                <apex:panelGroup >
+                    Enter amount:<apex:inputText value="{!payment}" id="payment"/> 
+                    <apex:commandButton action="{!save}" value="Pay" reRender="penaltyForm" />
+                </apex:panelGroup>
+            </apex:pageBlockSection> 
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,14 @@
+<apex:page controller="PaymentHistoryController" lightningStyleSheets="true" action="{!init}">
+    <apex:form >
+        <apex:pageBlock title="Payments">
+            <apex:pageBlockTable value="{! payments }" var="p">
+                <apex:column value="{! p.Name }"/>
+                <apex:column value="{! p.Date__c }"/>
+                <apex:column value="{! p.PaymentSumm__c }"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <div align="center">
+            <apex:commandButton action="{!home}" value="Home" />              
+        </div>
+    </apex:form>
+</apex:page>

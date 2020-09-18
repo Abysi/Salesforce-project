@@ -1,0 +1,30 @@
+<apex:page controller="ChangeUserBillController" lightningStyleSheets="true" action="{!init}">
+    <apex:form id="mainForm" >
+        
+        <apex:pageBlock title="Users from your region">
+            <apex:pageBlockTable value="{!users}" var="u">
+                <apex:column headerValue="Name" >
+                    <apex:commandLink action="{!setCurrentUserForPenalty}" value="{!u.Name}" reRender="mainForm">
+                        <apex:param name="userId" value="{!u.id}" assignTo="{!currentUserId}"/>
+                    </apex:commandLink>
+                </apex:column>
+            </apex:pageBlockTable>
+            
+            <apex:messages />
+            <apex:pageBlockSection id="penaltyForm">
+                
+                <apex:panelGroup >
+                    <apex:outputText value="Current user:{!currentUser.name}"></apex:outputText>
+                    <apex:inputText value="{!penalty}"/>
+                    <apex:commandButton action="{!addPenaltyForUser}" value="Add penalty" reRender="mainForm"/>
+                </apex:panelGroup>
+                
+            </apex:pageBlockSection> 
+            
+            
+        </apex:pageBlock>
+    </apex:form>
+    
+    
+    
+</apex:page>
