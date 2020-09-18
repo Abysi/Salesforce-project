@@ -1,0 +1,46 @@
+<apex:page controller="detailUserPageController" lightningStyleSheets="true" action="{!init}" >
+    <apex:form >
+        <apex:pageBlock id="detailBlock">
+            
+            <apex:pageBlockSection title="Personal Info" >
+                <apex:outputText value="Name: {!userInfo.Name}" />
+                <apex:outputText value="Login: {!userInfo.Login__c}" />
+                <apex:outputText value="Region: {!userInfo.Region__c}" />
+                <apex:outputText value="City: {!userInfo.City__c}" />
+                <apex:commandButton action="{!changeAddress}" value="Change address" rendered="{!userInfo.Balance__c>=0}"/> 
+            </apex:pageBlockSection> 
+            
+            <apex:pageBlockSection title="Meter reading" >
+                <apex:outputText value="City tax water: {!userInfo.cityTaxWater__c} $" />
+                <apex:outputText value="City tax gas: {!userInfo.cityTaxGas__c} $" />
+                <apex:outputText value="City tax elec: {!userInfo.CityTaxElec__c} $" />
+                <apex:outputText value="Your mater water: {!userInfo.Mater_Water__c}" />
+                <apex:outputText value="Your mater gas: {!userInfo.Meter_Gas__c}" />
+                <apex:outputText value="Your mater elec: {!userInfo.Meter_Elec__c}" />
+                <apex:commandButton action="{!sendMeterReading}" value="Send meter reading"/> 
+                
+            </apex:pageBlockSection> 
+            
+            <apex:pageBlockSection title="Payment info" >
+                <apex:outputText value="Penalty at this mounth: {!userInfo.PenaltyFromManager__c} $"/>
+                <apex:outputText value="To pay at last day of mounth: {!userInfo.To_Pay_at_lastDatOfMonth__c} $"/>
+                <apex:outputText value="Balance: {!userInfo.Balance__c} $" />
+                <apex:outputText value="" />
+                <apex:commandButton action="{!paymentReport}" value="Payment report"/> 
+                <apex:commandButton action="{!payToBill}" value="Pay to bill"/>
+                                 
+            </apex:pageBlockSection> 
+            
+            <apex:pageBlockSection title="Help" rendered="{!recordTypeName=='Customer'}">
+                <apex:commandButton action="{!contactManager}" value="Contact manager"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Manager functionality" rendered="{!recordTypeName=='Manager'}" >
+                <apex:commandButton action="{!userPaymentHistory}" value="Show users payment history"/>
+                <apex:commandButton action="{!changeUserBill}" value="Change user bill"/>
+                <apex:commandButton action="{!changeRegionRates}" value="Change Region rates"/>
+            </apex:pageBlockSection> 
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
