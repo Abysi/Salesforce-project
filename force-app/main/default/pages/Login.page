@@ -1,0 +1,14 @@
+<apex:page controller="LoginController" lightningStyleSheets="true">
+    <apex:form id="mainForm" >
+        <apex:pageBlock title="Login">
+            <apex:messages />
+            <apex:pageBlockSection >
+                Login<apex:inputText value="{!login}"/>
+                Password<apex:inputSecret value="{!password}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <div align="center">
+            <apex:commandButton action="{!Save}" value="Login" reRender="mainForm" />              
+        </div>
+    </apex:form>
+</apex:page>
