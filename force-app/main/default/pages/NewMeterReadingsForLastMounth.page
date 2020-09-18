@@ -1,0 +1,15 @@
+<apex:page controller="NewMeterReadingsForLastMonthController" lightningStyleSheets="true" action="{!init}">
+    <apex:form id="mainForm" >
+        <apex:pageBlock title="Update meter">
+            <apex:messages />
+            <apex:pageBlockSection >
+                Enter your water meter <apex:inputText value="{!water}"/>
+                Enter your water gas<apex:inputText value="{!gas}"/>
+                Enter your water elec<apex:inputText value="{!elec}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <div align="center">
+            <apex:commandButton action="{!save}" value="Update meters" />              
+        </div>
+    </apex:form>
+</apex:page>
